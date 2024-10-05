@@ -70,7 +70,6 @@
               '<img src="/static/images/progress.gif" style="width: 3%; margin-top: 10px;">';
 
             // await: 처리가 끝날때까지 대기 상태로 진입, 다른 기능이 실행 정지됨.
-
             await fetch("http://localhost:5000/desk", {
               method: "post",
               headers: {
@@ -83,7 +82,6 @@
                 result.innerHTML = data["res"];
                 document.getElementById("processing").innerHTML = "";
               });
-
           } else if (pick_count > 8) {
             // 이미지가 5개 이상 선택되면 메시지 출력
             document.getElementById("processing").innerHTML =
@@ -148,7 +146,6 @@
     </div>
 
     <div style="width: 90%; margin: 30px auto; text-align: center">
-
       {% for filename in filenames %}
       <img
         id="{{loop.index}}"

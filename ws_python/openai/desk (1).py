@@ -12,21 +12,22 @@ import tool
 app = Flask(__name__)  # __name__ == '__main__'
 CORS(app)
 # GET, http://localhost:5000  =>OpenAI 웹서비스 접속
-
 @app.get('/')
 def index():
-  return "openAI 웹사이트 접속"
+  return "OpenAI 웹서비스 접속"
 
 # http://localhost:5000/desk
 @app.get('/desk')
 def desk_form():
-  imgs = [i for i in range(1,51)]
-  # filenames =random.choices(imgs,k=50) # 중복 -> 복원 추출
-  filenames = random.sample(imgs,k=50)
+  imgs = [i for i in range(1, 51, 1)]
+  print(imgs)
   
-  return render_template("desk.html",filenames=filenames)
+  # filenames = random.choices(imgs, k=50) #중복->복원 추출
+  filenames = random.sample(imgs, k=50) #중복없음 -> 비복원 추출
+  print(filenames)
+  
+  return render_template('desk.html',filenames = filenames)
 
-# 
 # http://localhost:5000/desk
 @app.post('/desk')
 def desk_proc():
@@ -36,19 +37,19 @@ def desk_proc():
     data = request.json
     desk = data['desk']
     desk = desk.split(",")
-    print("-> desk :",desk)
+    print("-> desk:",desk)
+   
     # 배열의 요소를 정수로 변경하여 list로 변경
-    desk = list(map(int,desk))     # map: 배열의 요소에 함수를 적용하는 기능을 함.
-    print("-> desk :",desk) 
+    desk = list(map(int, desk))# map: 배열의 요소에 함수를 적용하는 기능을 함.
+    print("-> desk:",desk)
     
-    items =[]
-    for index in range(len(desk)) : #range(8) => 0~7
+    items = []
+    for index in range(len(desk)): # range(8) => 0~7
       item = f'{desk[index]}.jpg'
       items.append(item)
-
+    
     items_join = ",".join(items)
     print("->items_join",items_join) 
-    
     prompt='''
     사용자를 3가지 그룹으로 분류하는 중이야, 가장 선호도가 높은 그룹 3가지를 추천하고 아래의 기준을 적용하여 분류해줘.
 
