@@ -27,11 +27,16 @@
 
           //fetch
           
+<<<<<<< HEAD
           await fetch("http://127.0.0.1:5000/summary",{
+=======
+          fetch("http://127.0.0.1:5000/summary", {
+>>>>>>> 4afaffa (20241012 commit)
             method: "post",
             headers: {
               "Content-Type": "application/json",
             },
+<<<<<<< HEAD
             body: JSON.stringify({ article }) //{"desk":desk}
           })
           .then((response)=>response.json())
@@ -40,6 +45,16 @@
             result_animation_tag.innerHTML='none';
             result_tag.style.display='block';           
           });
+=======
+            body: JSON.stringify({ article }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              result_tag.value = data["res"];
+              result_animation_tag.style.display = "none";
+              result_tag.style.display = "block";
+            });
+>>>>>>> 4afaffa (20241012 commit)
 
 
           result_animation_tag.innerHTML =

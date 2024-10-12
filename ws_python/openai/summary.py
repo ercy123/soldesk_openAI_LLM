@@ -5,8 +5,17 @@ import tool
 app = Flask(__name__) # __name__ == '__main__'
 CORS(app)
 
+<<<<<<< HEAD
 @app.get('/summary') # GET, http://localhost:5000/summary
 def summary_form():
+=======
+@app.get('/')
+def index():
+  return "요약서비스"
+
+@app.get('/summary') # GET, http://localhost:5000/summary
+def summary_from():
+>>>>>>> 4afaffa (20241012 commit)
   return render_template("summary.html")
 
 @app.post('/summary') # POST, http://localhost:5000/summary
@@ -16,7 +25,13 @@ def summary_proc():
   article = data['article']
   
   # 빈 라인 삭제
+<<<<<<< HEAD
   # print(article)
+=======
+  article = tool.remove_empty_lines(article)
+  # print(article)
+  prompt = f'다음 문서를 400자 이내로 요약해줘.\n\n{article}'
+>>>>>>> 4afaffa (20241012 commit)
  
   print('-> prompt: ' + prompt)
   
