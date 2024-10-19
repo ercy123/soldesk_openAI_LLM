@@ -1,0 +1,32 @@
+사용자명 입력: system
+비밀번호 입력: 1234
+
+다음에 접속됨:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> alter session set "_oracle_script"=true;
+
+세션이 변경되었습니다.
+
+SQL> create user ai identified by 1234;
+
+사용자가 생성되었습니다.
+
+SQL> grant connect, resource to ai ;
+
+권한이 부여되었습니다.
+
+SQL> connect
+사용자명 입력: ai
+비밀번호 입력:
+연결되었습니다.
+SQL> select * from tab;
+
+선택된 레코드가 없습니다.
+
+SQL> alter user ai default tablespace users quota unlimited on users;
+
+사용자가 변경되었습니다.
+
+
