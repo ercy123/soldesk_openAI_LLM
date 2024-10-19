@@ -14,6 +14,7 @@
     <script type="text/javascript">
       window.onload = () => {
         let msg = document.getElementById("msg");
+<<<<<<< HEAD
         send.addEventListener("click", async function () {
           // HTML Form 태그의 데이터 저장 ★
           let form_data = new FormData();
@@ -22,11 +23,22 @@
           if (cnt == 0) {
             msg.innerHTML =
               '<span style="color: red">파일 선택이 안되었습니다.</span>';
+=======
+
+        send.addEventListener("click", async function () {
+          // HTML Form 태그의 데이터 저장 ★
+          // 태그 id가 'file'인 태그의 파일 갯수
+
+          if (cnt == 0) {
+            msg.innerHTML =
+              '<span style="color: led">파일 선택이 안되었습니다.</span>';
+>>>>>>> ed7d2a002230aa834c637958e4abb5ddc8a11c16
             return; // 실행 종료
           }
 
           // 파일이 있으면 파일 객체를 FormData 클래스의 객체에 저장
 
+<<<<<<< HEAD
           for(let x =0 ; x < cnt; x++){
             // form 객체에 file이란 이름으로 파일 객체 저장 ★         
             form_data.append("file",document.getElementById('file').files[x])
@@ -42,6 +54,12 @@
             msg.innerHTML = data.message
           });
 
+=======
+          // form 객체에 file이란 이름으로 파일 객체 저장 ★
+
+          msg.innerHTML =
+            '<img src="/static/images/progress.gif" style="width: 15%; margin-top: 0px;">';
+>>>>>>> ed7d2a002230aa834c637958e4abb5ddc8a11c16
         });
       };
     </script>

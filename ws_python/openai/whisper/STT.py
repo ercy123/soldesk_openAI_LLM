@@ -10,10 +10,17 @@ client = OpenAI(
 # MP3
 # -----------------------------------------------------------------------------
 # 한국어
+<<<<<<< HEAD
 # audio_file= open("./숲.mp3", "rb") 
 # transcript = client.audio.transcriptions.create(model='whisper-1', 
 #                                      language='ko',
 #                                      file=audio_file)
+=======
+audio_file= open("./숲.mp3", "rb") 
+transcript = client.audio.transcriptions.create(model='whisper-1', 
+                                     language='ko',
+                                     file=audio_file)
+>>>>>>> ed7d2a002230aa834c637958e4abb5ddc8a11c16
 
 # 영어
 # audio_file= open("./somewhere.mp3", "rb")
@@ -30,10 +37,17 @@ client = OpenAI(
 #                                      file=audio_file)
 
 # 영어
+<<<<<<< HEAD
 audio_file= open("Mind-blowing.mp4", "rb")
 transcript = client.audio.transcriptions.create(model='whisper-1', 
                                      language='en',
                                      file=audio_file)
+=======
+# audio_file= open("Mind-blowing.mp4", "rb")
+# transcript = client.audio.transcriptions.create(model='whisper-1', 
+#                                      language='en',
+#                                      file=audio_file)
+>>>>>>> ed7d2a002230aa834c637958e4abb5ddc8a11c16
 
 print(type(transcript)) # <class 'openai.types.audio.transcription.Transcription'>
 print(transcript.text)
