@@ -41,8 +41,14 @@ def desk_proc():
     desk = list(map(int,desk))     # map: 배열의 요소에 함수를 적용하는 기능을 함.
     print("-> desk :",desk) 
     
-    
+    items =[]
+    for index in range(len(desk)) : #range(8) => 0~7
+      item = f'{desk[index]}.jpg'
+      items.append(item)
 
+    items_join = ",".join(items)
+    print("->items_join",items_join) 
+    
     prompt='''
     사용자를 3가지 그룹으로 분류하는 중이야, 가장 선호도가 높은 그룹 3가지를 추천하고 아래의 기준을 적용하여 분류해줘.
 

@@ -71,17 +71,18 @@
 
             // await: 처리가 끝날때까지 대기 상태로 진입, 다른 기능이 실행 정지됨.
 
-            await fetch("http://127.0.0.1:5000/desk",{
-              "method" : "post",
-              "headers" : {
-                "Content-Type" : "application/json"
+            await fetch("http://localhost:5000/desk", {
+              method: "post",
+              headers: {
+                "Content-Type": "application/json",
               },
-              body : JSON.stringify(desk) //{"desk" : desk}
+              body: JSON.stringify({ desk }), //{"desk":desk}
             })
-            .then((response)=>response.json())
-            .then((data)=>{
-              result.innerHTML=
-            })
+              .then((response) => response.json())
+              .then((data) => {
+                result.innerHTML = data["res"];
+                document.getElementById("processing").innerHTML = "";
+              });
 
           } else if (pick_count > 8) {
             // 이미지가 5개 이상 선택되면 메시지 출력
@@ -149,7 +150,6 @@
     <div style="width: 90%; margin: 30px auto; text-align: center">
 
       {% for filename in filenames %}
-
       <img
         id="{{loop.index}}"
         name="recommend"
@@ -159,7 +159,6 @@
         data-value="0"
         data-filename="{{filename}}"
       />
-
       {% endfor %}
 
       <br /><br />
